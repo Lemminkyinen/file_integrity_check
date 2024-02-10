@@ -11,6 +11,10 @@ def main(path: str):
         print(f"Invalid path: {path}")
         exit(1)
 
+    if not path_.exists():
+        print(f"Path does not exist: {path}")
+        exit(1)
+
     if path_.is_dir():
         files = find_all_files(path_)
     else:
