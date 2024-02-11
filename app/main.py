@@ -8,7 +8,7 @@ from wrappers.hash_lib_wrap import file_sha256
 def main(path: str):
     path_ = convert_to_path(path)
     if path_ is None:
-        print(f"Invalid path: {path}")
+        print(f"Cannot convert to path: {path}")
         exit(1)
 
     if not path_.exists():
@@ -46,7 +46,7 @@ def convert_to_path(s: str) -> Path | None:
 
 
 def find_all_files(dir: Path):
-    return [f for f in dir.rglob("*") if f.is_file()]
+    return [f for f in dir.glob("*") if f.is_file()]
 
 
 if __name__ == "__main__":
